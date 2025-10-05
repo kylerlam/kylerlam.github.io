@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - main  # Trigger when you push code to the "main" branch
-      - ci
+      - test-ci
+      - dev
 
 # 2. Set permissions for the workflow
 permissions:

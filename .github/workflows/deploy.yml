@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+# 1. When should this workflow run?
+on:
+  push:
+    branches:
+      - main  # Trigger when you push code to the "main" branch
+
+# 2. Set permissions for the workflow
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 3. Define the jobs (steps) to run
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5  # "actions/checkout" is an official GitHub Action
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci  # "clean install" installs all dependencies listed in package-lock.json, faster and more reliable
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

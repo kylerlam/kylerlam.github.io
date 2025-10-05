@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main  # Trigger when you push code to the "main" branch
+      - ci
 
 # 2. Set permissions for the workflow
 permissions:
@@ -23,13 +24,31 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 20
 
       - name: Install dependencies
         run: npm ci  # "clean install" installs all dependencies listed in package-lock.json, faster and more reliable
 
       - name: Build project
         run: npm run build
+
+      - name: Export static (fallback)
+        run: |
+          # If Next.js didn't emit ./out during build, try explicit export
+          if [ ! -d "out" ]; then
+            npx next export || true
+          fi
+
+      - name: Prepare artifact directory
+        if: ${{ always() }}
+        run: |
+          # Ensure a clean build/ dir and move static export there
+          rm -rf build || true
+          if [ -d "out" ]; then
+            mv out build
+          else
+            mkdir -p build
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

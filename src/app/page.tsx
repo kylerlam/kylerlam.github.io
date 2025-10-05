@@ -22,7 +22,7 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
+                text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
@@ -116,9 +116,6 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  My Projects
-                </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Check out my latest work
                 </h2>
@@ -157,9 +154,6 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Hackathons
-                </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   I like building things
                 </h2>
@@ -199,9 +193,6 @@ export default function Page() {
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
-              </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                 Get in Touch
               </h2>

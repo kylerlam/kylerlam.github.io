@@ -101,16 +101,15 @@ export default function Page() {
                   description={project.description}
                   dates={project.dates}
                   tags={project.technologies}
-                  image={project.image}
-                  video={project.video}
                   links={project.links}
                 />
+
               </BlurFade>
             ))}
           </div>
         </div>
       </section>
-      <section id="hackathons">
+      <section id="hobits">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -120,7 +119,7 @@ export default function Page() {
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   During my time in university, I attended{" "}
-                  {DATA.hackathons.length}+ hackathons. People from around the
+                  {DATA.hobits.length}+ hobits. People from around the
                   country would come together and build incredible things in 2-3
                   days. It was eye-opening to see the endless possibilities
                   brought to life by a group of motivated and passionate
@@ -131,7 +130,7 @@ export default function Page() {
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-              {DATA.hackathons.map((project, id) => (
+              {DATA.hobits.map((project, id) => (
                 <BlurFade
                   key={project.title + project.dates}
                   delay={BLUR_FADE_DELAY * 15 + id * 0.05}
@@ -163,14 +162,14 @@ export default function Page() {
                   href={DATA.contact.social.LinkedIn.url}
                   className="text-blue-500 hover:underline"
                 >
-                   LinkedIn
+                  LinkedIn
                 </Link>
                 {" "}or{" "}
                 <Link
                   href={DATA.contact.social.Email.url}
                   className="text-blue-500 hover:underline"
                 >
-                   Email
+                  Email
                 </Link>{" "}
                 and I&apos;ll respond whenever I can.
               </p>

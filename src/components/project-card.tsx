@@ -30,14 +30,11 @@ interface Props {
 
 export function ProjectCard({
   title,
-  href,
   description,
   dates,
   tags,
   link,
-  image,
   links,
-  className,
 }: Props) {
   return (
     <Card
@@ -45,8 +42,8 @@ export function ProjectCard({
         "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
       }
     >
-      <CardHeader className="px-2">
-        <div className="space-y-1">
+      <CardHeader className="px-8 pt-10">
+        <div className="space-y-1 px-2">
           <CardTitle className="mt-1 text-base">{title}</CardTitle>
           <time className="font-sans text-xs">{dates}</time>
           <div className="hidden font-sans text-xs underline print:visible">
@@ -57,7 +54,7 @@ export function ProjectCard({
           </Markdown>
         </div>
       </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
+      <CardContent className="mt-auto flex flex-col px-8">
         {tags && tags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
             {tags?.map((tag) => (
@@ -72,7 +69,7 @@ export function ProjectCard({
           </div>
         )}
       </CardContent>
-      <CardFooter className="px-2 pb-2">
+      <CardFooter className="px-8 pb-12">
         {links && links.length > 0 && (
           <div className="flex flex-row flex-wrap items-start gap-1">
             {links?.map((link, idx) => (

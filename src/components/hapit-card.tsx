@@ -19,13 +19,18 @@ export function HapitCard({
   image,
   links,
 }: Props) {
+  const initial = (title || "?").trim().charAt(0) || "?";
   return (
     <li className="relative ml-10 py-4">
       <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
         <Avatar className="border size-12 m-auto">
           <AvatarImage src={image} alt={title} className="object-contain" />
-          <AvatarFallback>{title[0]}</AvatarFallback>
+          <AvatarFallback>{initial}</AvatarFallback>
         </Avatar>
+      </div>
+      <div className="space-y-1">
+        <h3 className="font-semibold leading-none tracking-tight">{title}</h3>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       {links && links.length > 0 && (
         <div className="mt-2 flex flex-row flex-wrap items-start gap-2">

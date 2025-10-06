@@ -127,6 +127,7 @@ export default function Page() {
             <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
               {DATA.hobits.map((project, id) => (
                 <BlurFade
+                  key={project.title ?? id}
                   delay={BLUR_FADE_DELAY * 15 + id * 0.05}
                 >
                   <HapitCard

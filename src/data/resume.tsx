@@ -49,7 +49,7 @@ export const DATA = {
       school: "Bournemouth University",
       href: "https://www.bournemouth.ac.uk/",
       degree: "BSc in Software Engineering",
-      logoUrl: "/BU.png",
+      logoUrl: "/bu.png",
       start: "2020",
       end: "2024",
     },

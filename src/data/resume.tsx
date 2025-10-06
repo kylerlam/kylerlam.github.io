@@ -78,7 +78,7 @@ export const DATA = {
       dates: "Oct 2025 - Present",
       active: true,
       description:
-        "A full-stack e-commerce website built with React, Spring Boot, and MySQL. It empowers individual entrepreneurs to launch their online stores quickly and efficiently. The platform features a responsive design and an appealing user interface, and is envisioned to serve the wider community in the future.",
+        "A full-stack e-commerce website built with React, Spring Boot, and MySQL. It empowers individual entrepreneurs to launch their online stores quickly and efficiently. It is envisioned to serve the wider community in the future.",
       technologies: [
         "React.js",
         "Typescript",
@@ -90,7 +90,7 @@ export const DATA = {
         {
           type: "Source",
           href: "#",
-          icon: <Icons.globe className="size-3" />,
+          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
@@ -122,32 +122,22 @@ export const DATA = {
     },
     // project 3
     {
-      title: "llm.report",
-      href: "https://llm.report",
-      dates: "April 2023 - September 2023",
+      title: "HRMS system",
+      href: "#",
+      dates: "Oct 2025 - Present",
       active: true,
       description:
-        "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+        "A HRMS database design and implement. As a revision of database knowledge.",
       technologies: [
         "Next.js",
         "Typescript",
-        "PostgreSQL",
-        "Prisma",
         "TailwindCSS",
-        "Shadcn UI",
         "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
       ],
       links: [
         {
-          type: "Website",
-          href: "https://llm.report",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
           type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
+          href: "#",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -170,7 +160,7 @@ export const DATA = {
         {
           type: "Source",
           href: "#",
-          icon: <Icons.globe className="size-3" />,
+          icon: <Icons.github className="size-3" />,
         },
       ],
     },

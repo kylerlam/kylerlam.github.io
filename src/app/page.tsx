@@ -103,7 +103,6 @@ export default function Page() {
                   tags={project.technologies}
                   links={project.links}
                 />
-
               </BlurFade>
             ))}
           </div>
@@ -118,7 +117,8 @@ export default function Page() {
                   My favorite things
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A list of a few things I’d like to do — they may not happen, but hopefully soon.
+                  A list of a few things I’d like to do — they may not happen,
+                  but hopefully soon.
                 </p>
               </div>
             </div>
@@ -155,8 +155,8 @@ export default function Page() {
                   className="text-blue-500 hover:underline"
                 >
                   LinkedIn
-                </Link>
-                {" "}or{" "}
+                </Link>{" "}
+                or{" "}
                 <Link
                   href={DATA.contact.social.Email.url}
                   className="text-blue-500 hover:underline"

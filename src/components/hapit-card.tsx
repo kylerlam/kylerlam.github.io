@@ -13,12 +13,7 @@ interface Props {
   }[];
 }
 
-export function HapitCard({
-  title,
-  description,
-  image,
-  links,
-}: Props) {
+export function HapitCard({ title, description, image, links }: Props) {
   const initial = (title || "?").trim().charAt(0) || "?";
   return (
     <li className="relative ml-10 py-4">

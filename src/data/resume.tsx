@@ -105,11 +105,7 @@ export const DATA = {
       active: true,
       description:
         "A creative and uniquely styled native front-end login interface that can be seamlessly integrated into any framework project. Built with HTML, CSS, and JavaScript, it features real-time form validation, smooth animations, and a visually appealing user experience.",
-      technologies: [
-        "JavaScript",
-        "HTML",
-        "CSS",
-      ],
+      technologies: ["JavaScript", "HTML", "CSS"],
       links: [
         {
           type: "Source",
@@ -128,12 +124,7 @@ export const DATA = {
       active: true,
       description:
         "A HRMS database design and implement. As a revision of database knowledge.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "TailwindCSS",
-        "Magic UI",
-      ],
+      technologies: ["Next.js", "Typescript", "TailwindCSS", "Magic UI"],
       links: [
         {
           type: "Source",
@@ -149,13 +140,7 @@ export const DATA = {
       active: true,
       description:
         "A full-stack book and event management system for schools, developed as my final-year university project. Built with Vue, Flask, and MySQL, and now being refactored for improvement.",
-      technologies: [
-        "Vue.js",
-        "Flask",
-        "MySQL",
-        "JavaScript",
-        "ElementUI",
-      ],
+      technologies: ["Vue.js", "Flask", "MySQL", "JavaScript", "ElementUI"],
       links: [
         {
           type: "Source",
@@ -170,22 +155,19 @@ export const DATA = {
       title: "Having a dog",
       description:
         "It might not be easy to have a dog for me right now due to some reasons. Hopefully, I’ll be able to have one in the future.",
-      image:
-        "https://simpleicons.org/icons/datadog.svg",
+      image: "https://simpleicons.org/icons/datadog.svg",
     },
     {
       title: "Traveling",
       description:
         "Visiting different countries and experiencing their cultures would broaden my horizons.",
-      image:
-        "https://www.svgrepo.com/show/189577/flight.svg",
+      image: "https://www.svgrepo.com/show/189577/flight.svg",
     },
     {
       title: "Become a wonderful creater",
       description:
         "Keep working hard, keep learning, and turn what I’ve learned into something truly inspiring.",
-      image:
-        "https://simpleicons.org/icons/cashapp.svg",
+      image: "https://simpleicons.org/icons/cashapp.svg",
     },
   ],
 } as const;

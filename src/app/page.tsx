@@ -14,13 +14,6 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 const HapitCard = dynamic(() => import("@/components/hapit-card").then((mod) => mod.HapitCard), { ssr: false });
 
-// const HapitCard = dynamic(
-//   async () => {
-//     await new Promise((r) => setTimeout(r, 1500));
-//     return import("@/components/hapit-card").then((m) => m.HapitCard);
-//   },
-//   { ssr: false, loading: () => <div>Loading…</div> },
-// );
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {

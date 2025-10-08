@@ -1,14 +1,26 @@
-import { HapitCard } from "@/components/hapit-card";
+"use client";
+
+// import { HapitCard } from "@/components/hapit-card";
+import dynamic from "next/dynamic";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { ProjectCard } from "@/components/project-card";
+// import { ProjectCard } from "@/components/project-card";
+const ProjectCard = dynamic(() => import("@/components/project-card").then((mod) => mod.ProjectCard), { ssr: false });
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+const HapitCard = dynamic(() => import("@/components/hapit-card").then((mod) => mod.HapitCard), { ssr: false });
 
+// const HapitCard = dynamic(
+//   async () => {
+//     await new Promise((r) => setTimeout(r, 1500));
+//     return import("@/components/hapit-card").then((m) => m.HapitCard);
+//   },
+//   { ssr: false, loading: () => <div>Loading…</div> },
+// );
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
@@ -24,11 +36,7 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl text-neutral-500"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
+              <BlurFadeText className="max-w-[600px] md:text-xl text-neutral-500" delay={BLUR_FADE_DELAY} text={DATA.description} />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
@@ -40,13 +48,11 @@ export default function Page() {
         </div>
       </section>
       <section id="about">
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+        <BlurFade delay={BLUR_FADE_DELAY * 10}>
           <h2 className="text-2xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-lg text-muted-foreground dark:prose-invert">
-            {DATA.summary}
-          </Markdown>
+          <Markdown className="prose max-w-full text-pretty font-sans text-lg text-muted-foreground dark:prose-invert">{DATA.summary}</Markdown>
         </BlurFade>
       </section>
       <section id="education">
@@ -55,10 +61,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold">Education</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
-            <BlurFade
-              key={education.school}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-            >
+            <BlurFade key={education.school} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
               <ResumeCard
                 key={education.school}
                 href={education.href}
@@ -74,26 +77,21 @@ export default function Page() {
       </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          {/* <BlurFade delay={BLUR_FADE_DELAY * 11}> */}
+          <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my latest work</h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple
-                  websites to complex web applications. Here are a few of my
-                  favorites.
+                  I&apos;ve worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
                 </p>
               </div>
             </div>
           </BlurFade>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
             {DATA.projects.map((project, id) => (
-              <BlurFade
-                key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-              >
+              // <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
+              <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 17 + id * 0.05}>
                 <ProjectCard
                   href={project.href}
                   key={project.title}
@@ -115,12 +113,9 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  My favorite things
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My favorite things</h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A list of a few things I’d like to do — they may not happen,
-                  but hopefully soon.
+                  A list of a few things I’d like to do — they may not happen, but hopefully soon.
                 </p>
               </div>
             </div>
@@ -128,15 +123,9 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
               {DATA.hobits.map((project, id) => (
-                <BlurFade
-                  key={project.title ?? id}
-                  delay={BLUR_FADE_DELAY * 15 + id * 0.05}
-                >
-                  <HapitCard
-                    title={project.title}
-                    description={project.description}
-                    image={project.image}
-                  />
+                // <BlurFade key={project.title ?? id} delay={BLUR_FADE_DELAY * 15 + id * 0.05}>
+                <BlurFade key={project.title ?? id} delay={BLUR_FADE_DELAY * 40 + id * 0.05}>
+                  <HapitCard title={project.title} description={project.description} image={project.image} />
                 </BlurFade>
               ))}
             </ul>
@@ -147,22 +136,14 @@ export default function Page() {
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Feel free to get in touch via{" "}
-                <Link
-                  href={DATA.contact.social.LinkedIn.url}
-                  className="text-blue-500 hover:underline"
-                >
+                <Link href={DATA.contact.social.LinkedIn.url} className="text-blue-500 hover:underline">
                   LinkedIn
                 </Link>{" "}
                 or{" "}
-                <Link
-                  href={DATA.contact.social.Email.url}
-                  className="text-blue-500 hover:underline"
-                >
+                <Link href={DATA.contact.social.Email.url} className="text-blue-500 hover:underline">
                   Email
                 </Link>{" "}
                 and I&apos;ll respond whenever I can.

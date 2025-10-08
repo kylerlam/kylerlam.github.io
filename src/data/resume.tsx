@@ -7,8 +7,7 @@ export const DATA = {
   url: "https://kyler.github.io",
   location: "Hong Kong",
   locationLink: "https://www.google.com/maps/place/hongkong",
-  description:
-    "A web development enthusiast with a degree in Software Engineering.",
+  description: "A web development enthusiast with a degree in Software Engineering.",
   summary:
     "Software Engineering graduate with solid full-stack development skills in Vue3, React, Spring Boot, Flask, and RESTful APIs. Strong programming foundation in Python and Java, with hands-on experience in both independent and collaborative projects. Passionate about LLM-related applications and eager to contribute as a Web Developer / Full-Stack Developer / IT Support.",
   avatarUrl: "/me.jpg",
@@ -79,13 +78,7 @@ export const DATA = {
       active: true,
       description:
         "A full-stack e-commerce website built with React, Spring Boot, and MySQL. It empowers individual entrepreneurs to launch their online stores quickly and efficiently. It is envisioned to serve the wider community in the future.",
-      technologies: [
-        "React.js",
-        "Typescript",
-        "MySQL",
-        "Ant Design",
-        "TailwindCSS",
-      ],
+      technologies: ["React.js", "Typescript", "MySQL", "Ant Design", "TailwindCSS"],
       links: [
         {
           type: "Source",
@@ -121,8 +114,7 @@ export const DATA = {
       href: "#",
       dates: "Oct 2025 - Present",
       active: true,
-      description:
-        "A HRMS database design and implement. As a revision of database knowledge.",
+      description: "A HRMS database design and implement. As a revision of database knowledge.",
       technologies: ["Next.js", "Typescript", "TailwindCSS", "Magic UI"],
       links: [
         {
@@ -156,20 +148,17 @@ export const DATA = {
   hobits: [
     {
       title: "Having a dog",
-      description:
-        "It might not be easy to have a dog for me right now due to some reasons. Hopefully, I’ll be able to have one in the future.",
+      description: "It might not be easy to have a dog for me right now due to some reasons. Hopefully, I’ll be able to have one in the future.",
       image: "https://simpleicons.org/icons/datadog.svg",
     },
     {
       title: "Traveling",
-      description:
-        "Visiting different countries and experiencing their cultures would broaden my horizons.",
+      description: "Visiting different countries and experiencing their cultures would broaden my horizons.",
       image: "https://www.svgrepo.com/show/189577/flight.svg",
     },
     {
       title: "Become a wonderful creater",
-      description:
-        "Keep working hard, keep learning, and turn what I’ve learned into something truly inspiring.",
+      description: "Keep working hard, keep learning, and turn what I’ve learned into something truly inspiring.",
       image: "https://simpleicons.org/icons/cashapp.svg",
     },
   ],

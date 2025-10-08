@@ -94,13 +94,12 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+      video: "",
     },
     // project 2
     {
       title: "Awesome Login",
-      href: "https://magicui.design",
+      href: "#",
       dates: "Oct 2025 - Present",
       active: true,
       description:
@@ -109,12 +108,12 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
+          href: "#",
           icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video: "",
     },
     // project 3
     {
@@ -132,6 +131,8 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
+      image: "",
+      video: "",
     },
     {
       title: "Book Activity",
@@ -148,6 +149,8 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
+      image: "",
+      video: "",
     },
   ],
   hobits: [

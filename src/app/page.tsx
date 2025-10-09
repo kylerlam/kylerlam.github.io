@@ -13,7 +13,6 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { HapitCard } from "@/components/hapit-card";
 import { Marquee } from "@/components/marquee";
-import { Button, buttonVariants } from "@/components/ui/button";
 import {useRef} from "react"
 
 const BLUR_FADE_DELAY = 0.04;
@@ -116,7 +115,9 @@ export default function Page() {
               </div>
               <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
                 <BlurFade delay={BLUR_FADE_DELAY * 14}>
-                  <Marquee className="[--duration:100s] mt-8" scrollTargetRef={stackRef}></Marquee>
+                  <div ref={stackRef}>
+                    <Marquee className="[--duration:100s] mt-8" scrollTargetRef={stackRef} />
+                  </div>
                 </BlurFade>
                 <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
                   {/* <BlurFade delay={BLUR_FADE_DELAY * 15}> */}
@@ -130,21 +131,21 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
-      <section id="hobits">
+      <section id="hobbies">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My favorite things</h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A list of a few things I’d like to do — they may not happen, but hopefully soon.
+                  A list of a few things I’d like to do �?they may not happen, but hopefully soon.
                 </p>
               </div>
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-              {DATA.hobits.map((project, id) => (
+              {DATA.hobbies.map((project, id) => (
                 // <BlurFade key={project.title ?? id} delay={BLUR_FADE_DELAY * 15 + id * 0.05}>
                 <BlurFade key={project.title ?? id} delay={BLUR_FADE_DELAY * 40 + id * 0.05}>
                   <HapitCard title={project.title} description={project.description} image={project.image} />

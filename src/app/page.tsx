@@ -138,7 +138,7 @@ export default function Page() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My favorite things</h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A list of a few things I’d like to do �?they may not happen, but hopefully soon.
+                  A list of a few things I’d like to do �?they may not happen, but hopefully soon.
                 </p>
               </div>
             </div>

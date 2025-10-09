@@ -33,7 +33,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 14
 
       - name: Install dependencies
         run: npm ci # "clean install" installs all dependencies listed in package-lock.json, faster and more reliable

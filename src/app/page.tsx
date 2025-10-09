@@ -1,22 +1,25 @@
 "use client";
 
-// import { HapitCard } from "@/components/hapit-card";
+// const ProjectCard = dynamic(() => import("@/components/project-card").then((mod) => mod.ProjectCard), { ssr: false });
 import dynamic from "next/dynamic";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-// import { ProjectCard } from "@/components/project-card";
-const ProjectCard = dynamic(() => import("@/components/project-card").then((mod) => mod.ProjectCard), { ssr: false });
+import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
-const HapitCard = dynamic(() => import("@/components/hapit-card").then((mod) => mod.HapitCard), { ssr: false });
+import { HapitCard } from "@/components/hapit-card";
+import { Marquee } from "@/components/marquee";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {useRef} from "react"
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const stackRef = useRef<HTMLDivElement>(null)
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -99,6 +102,32 @@ export default function Page() {
               </BlurFade>
             ))}
           </div>
+        </div>
+      </section>
+      <section id="techniques">
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Tech Stack</h2>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  I use these tools to build innovative web applications and other artifacts.
+                </p>
+              </div>
+              <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+                <BlurFade delay={BLUR_FADE_DELAY * 14}>
+                  <Marquee className="[--duration:100s] mt-8" scrollTargetRef={stackRef}></Marquee>
+                </BlurFade>
+                <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+                  {/* <BlurFade delay={BLUR_FADE_DELAY * 15}> */}
+                  {/* <div className="md-8"> */}
+                  {/* <Button variant={"outline"} size={"icon"}></Button> */}
+                  {/* </div> */}
+                  {/* </BlurFade> */}
+                </div>
+              </div>
+            </div>
+          </BlurFade>
         </div>
       </section>
       <section id="hobits">

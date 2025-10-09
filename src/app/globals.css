@@ -142,3 +142,33 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
+
+@layer utilities {
+  /* horizontal scrolling animation */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-30% - var(--gap)));
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee var(--duration, 60s) linear infinite;
+  }
+
+  /* vertical scrolling animation (optional) */
+  @keyframes marquee-vertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc(-50% - var(--gap)));
+    }
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee-vertical var(--duration, 60s) linear infinite;
+  }
+}

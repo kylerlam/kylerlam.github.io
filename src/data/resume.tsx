@@ -4,7 +4,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Kyler Lam",
   initials: "KL",
-  url: "https://kyler.github.io",
+  url: "https://kylerlam.github.io",
   location: "Hong Kong",
   locationLink: "https://www.google.com/maps/place/hongkong",
   description: "A web development enthusiast with a degree in Software Engineering.",
@@ -145,7 +145,7 @@ export const DATA = {
       video: "",
     },
   ],
-  hobits: [
+  hobbies: [
     {
       title: "Having a dog",
       description: "It might not be easy to have a dog for me right now due to some reasons. Hopefully, I’ll be able to have one in the future.",
@@ -157,7 +157,7 @@ export const DATA = {
       image: "https://www.svgrepo.com/show/189577/flight.svg",
     },
     {
-      title: "Become a wonderful creater",
+      title: "Become a wonderful creator",
       description: "Keep working hard, keep learning, and turn what I’ve learned into something truly inspiring.",
       image: "https://simpleicons.org/icons/cashapp.svg",
     },

@@ -101,7 +101,7 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "#",
+          href: "https://github.com/kylerlam/awesome-login",
           icon: <Icons.github className="size-3" />,
         },
       ],

@@ -1,47 +1,64 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# My Personal Website
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+Hey there! Welcome to my knowledge base. This project is a secondary creation based on the main branch of [dillionverma’s portfolio](https://github.com/dillionverma/portfolio). The design of UI and dock animations really caught my eye, which is why I chose this project as my main portfolio.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+## Teck Stack
 
-# Features
+- Framework: Next.js 20
+- Language: Typescript
+- Styling: Shadcn/UI, TailwindCSS, Magic UI, Framer Motion
+- Deployment: GitHub Pages
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+## Make this your own
 
-# Getting Started Locally
+### Run locally
 
-1. Clone this repository to your local machine:
+1. Clone this repository to your local device:
 
-   ```bash
-   git clone https://github.com/dillionverma/portfolio
-   ```
+```bash
+git clone https://github.com/kylerlam/kylerlam.github.io
+```
 
 2. Move to the cloned directory
 
-   ```bash
-   cd portfolio
-   ```
+```bash
+cd portfolio
+```
 
 3. Install dependencies:
 
-   ```bash
-   pnpm install
-   ```
+```bash
+npm install
+```
 
 4. Start the local Server:
 
-   ```bash
-   pnpm dev
-   ```
+```bash
+npm run dev
+```
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+5. check the development server at http://localhost:3000/
+6. Open the [Config file](./src/data/resume.tsx) and change the information to yours
 
-# License
+### Deploy on GitHub Page
+
+1. Create your the repository for GitHub Page
+
+```bash
+# repo name format
+<your github username>.github.io
+```
+
+2. Push everything onto the repository
+
+```bash
+git push -u origin main
+```
+
+## Deployment Magic
+
+GitHub provides a free, permanent website hosting service for every user. With GitHub Actions, you can automatically deploy your site after each push — all you need to do is **focus on editing your content**.
+
+## License
 
 Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).

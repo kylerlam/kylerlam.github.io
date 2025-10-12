@@ -38,7 +38,7 @@ export function Marquee({
     },
   }
 
-  // 提取所有 logo
+  // get logo
   const logos = techStackData.flatMap((category) =>
     category.subcategories.flatMap((sub) =>
       sub.technologies.map((tech) => ({
@@ -56,7 +56,7 @@ export function Marquee({
       animate={isInView ? "visible" : "hidden"}
       className="space-y-10"
     >
-      {/* 跑马灯模式 */}
+      {/* marquee animation */}
       {!showAll && (
         <>
           <div
@@ -94,7 +94,7 @@ export function Marquee({
               ))}
           </div>
 
-          {/* 展开按钮 */}
+          {/* expanding button */}
           <div className="flex justify-center">
             <Button
               variant="outline"
@@ -109,10 +109,10 @@ export function Marquee({
         </>
       )}
 
-      {/* 展示全部技能模式 */}
+      {/* show all teches mode */}
       {showAll && (
         <div className="space-y-10 px-4">
-          {/* 技能展示 */}
+          {/* show tech */}
           {techStackData.map((category, catIndex) => (
             <div key={catIndex}>
               <h2 className="text-xl font-semibold mb-4 text-center">
@@ -150,7 +150,7 @@ export function Marquee({
             </div>
           ))}
 
-          {/* 返回按钮 */}
+          {/* back button */}
           <div className="flex justify-center mt-10 mb-8">
             <Button
               variant="outline"

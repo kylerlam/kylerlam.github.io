@@ -2,12 +2,16 @@
 
 Hey there! Welcome to my knowledge base. This project is a secondary creation based on the main branch of [dillionverma’s portfolio](https://github.com/dillionverma/portfolio). The design of UI and dock animations really caught my eye, which is why I chose this project as my main portfolio.
 
-## Teck Stack
+## Tech Stack
 
 - Framework: Next.js 20
 - Language: Typescript
 - Styling: Shadcn/UI, TailwindCSS, Magic UI, Framer Motion
 - Deployment: GitHub Pages
+
+## Features
+
+- Tech list showcase with marquee animation
 
 ## Make this your own
 
@@ -58,6 +62,10 @@ git push -u origin main
 ## Deployment Magic
 
 GitHub provides a free, permanent website hosting service for every user. With GitHub Actions, you can automatically deploy your site after each push — all you need to do is **focus on editing your content**.
+
+---
+
+feel free to contact me with any questions~ 😊
 
 ## License
 

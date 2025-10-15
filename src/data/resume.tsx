@@ -109,23 +109,23 @@ export const DATA = {
       video: "",
     },
     // project 3
-    {
-      title: "HRMS system",
-      href: "#",
-      dates: "Oct 2025 - Present",
-      active: true,
-      description: "A HRMS database design and implement. As a revision of database knowledge.",
-      technologies: ["Next.js", "Typescript", "TailwindCSS", "Magic UI"],
-      links: [
-        {
-          type: "Source",
-          href: "#",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
+    // {
+    //   title: "HRMS system",
+    //   href: "#",
+    //   dates: "Oct 2025 - Present",
+    //   active: true,
+    //   description: "A HRMS database design and implement. As a revision of database knowledge.",
+    //   technologies: ["Next.js", "Typescript", "TailwindCSS", "Magic UI"],
+    //   links: [
+    //     {
+    //       type: "Source",
+    //       href: "#",
+    //       icon: <Icons.github className="size-3" />,
+    //     },
+    //   ],
+    //   image: "",
+    //   video: "",
+    // },
     {
       title: "Book Activity",
       href: "#",
@@ -137,7 +137,7 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "#",
+          href: "https://github.com/kylerlam/BookActivity.git",
           icon: <Icons.github className="size-3" />,
         },
       ],

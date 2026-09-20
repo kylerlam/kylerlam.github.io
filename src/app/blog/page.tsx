@@ -1,39 +1,33 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import { getBlogPosts } from "@/data/blog";
-import Link from "next/link";
+import { BlogList } from "@/components/localized-blog";
+import { getBlogPosts, getPostTranslations } from "@/data/blog";
+import { Locale, locales } from "@/i18n/locales";
 
 export const metadata = {
   title: "Blog",
   description: "My thoughts on software development, life, and more.",
 };
 
-const BLUR_FADE_DELAY = 0.04;
-
 export default async function BlogPage() {
   const posts = await getBlogPosts();
-
-  return (
-    <section>
-      <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blog</h1>
-      </BlurFade>
-      {posts
-        .sort((a, b) => {
-          if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-            return -1;
-          }
-          return 1;
-        })
-        .map((post, id) => (
-          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
-            <Link className="flex flex-col space-y-1 mb-4" href={`/blog/${post.slug}`}>
-              <div className="w-full flex flex-col">
-                <p className="tracking-tight">{post.metadata.title}</p>
-                <p className="h-6 text-xs text-muted-foreground">{post.metadata.publishedAt}</p>
-              </div>
-            </Link>
-          </BlurFade>
-        ))}
-    </section>
+  const localizedPosts = await Promise.all(
+    posts
+      .sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+      .map(async (post) => {
+        const translations = await getPostTranslations(post.slug);
+        return {
+          slug: post.slug,
+          translations: Object.fromEntries(
+            locales.map((locale) => [
+              locale,
+              {
+                title: translations[locale].metadata.title as string,
+                publishedAt: translations[locale].metadata.publishedAt as string,
+                locale: translations[locale].locale,
+              },
+            ]),
+          ) as Record<Locale, { title: string; publishedAt: string; locale: string }>,
+        };
+      }),
   );
+  return <BlogList posts={localizedPosts} />;
 }

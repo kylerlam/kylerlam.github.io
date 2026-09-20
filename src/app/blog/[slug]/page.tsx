@@ -1,9 +1,9 @@
-import { getBlogPosts, getPost } from "@/data/blog";
+import { BlogPostContent } from "@/components/localized-blog";
+import { getBlogPosts, getPost, getPostTranslations } from "@/data/blog";
 import { DATA } from "@/data/resume";
-import { formatDate } from "@/lib/utils";
+import { Locale, locales } from "@/i18n/locales";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -59,6 +59,19 @@ export default async function Blog({
     notFound();
   }
 
+  const translations = await getPostTranslations(params.slug);
+  const localizedPosts = Object.fromEntries(
+    locales.map((locale) => [
+      locale,
+      {
+        title: translations[locale].metadata.title as string,
+        publishedAt: translations[locale].metadata.publishedAt as string,
+        locale: translations[locale].locale,
+        source: translations[locale].source,
+      },
+    ]),
+  ) as Record<Locale, { title: string; publishedAt: string; locale: string; source: string }>;
+
   return (
     <section id="blog">
       <script
@@ -81,13 +94,7 @@ export default async function Blog({
           }),
         }}
       />
-      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">{post.metadata.title}</h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-        <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
-        </Suspense>
-      </div>
-      <article className="prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: post.source }}></article>
+      <BlogPostContent posts={localizedPosts} />
     </section>
   );
 }

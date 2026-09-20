@@ -1,4 +1,8 @@
+"use client";
+
 import { Dock, DockIcon } from "@/components/magicui/dock";
+import { LanguageToggle } from "@/components/language-toggle";
+import { useLanguage } from "@/components/language-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -8,6 +12,8 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Navbar() {
+  const { t } = useLanguage();
+
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
       <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
@@ -16,12 +22,12 @@ export default function Navbar() {
           <DockIcon key={item.href}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href={item.href} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}>
+                <Link href={item.href} aria-label={item.href === "/" ? t.home : t.blog} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}>
                   <item.icon className="size-4" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{item.label}</p>
+                <p>{item.href === "/" ? t.home : t.blog}</p>
               </TooltipContent>
             </Tooltip>
           </DockIcon>
@@ -33,16 +39,19 @@ export default function Navbar() {
             <DockIcon key={name}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link href={social.url} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}>
+                  <Link href={social.url} aria-label={name === "Email" ? t.email : name} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}>
                     <social.icon className="size-4" />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{name}</p>
+                  <p>{name === "Email" ? t.email : name}</p>
                 </TooltipContent>
               </Tooltip>
             </DockIcon>
           ))}
+        <DockIcon>
+          <LanguageToggle />
+        </DockIcon>
         <Separator orientation="vertical" className="h-full py-2" />
         <DockIcon>
           <Tooltip>
@@ -50,7 +59,7 @@ export default function Navbar() {
               <ModeToggle />
             </TooltipTrigger>
             <TooltipContent>
-              <p>Theme</p>
+              <p>{t.theme}</p>
             </TooltipContent>
           </Tooltip>
         </DockIcon>

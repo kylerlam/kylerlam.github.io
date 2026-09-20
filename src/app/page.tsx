@@ -10,10 +10,15 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HapitCard } from "@/components/hapit-card";
+import { useLanguage } from "@/components/language-provider";
+import { getLocalizedResume } from "@/data/resume-translations";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const { locale, t } = useLanguage();
+  const resume = getLocalizedResume(locale);
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -24,9 +29,9 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
+                text={t.greeting}
               />
-              <BlurFadeText className="max-w-[600px] md:text-xl text-neutral-500" delay={BLUR_FADE_DELAY} text={DATA.description} />
+              <BlurFadeText className="max-w-[600px] md:text-xl text-neutral-500" delay={BLUR_FADE_DELAY} text={resume.description} />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
@@ -39,19 +44,19 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
-          <h2 className="text-2xl font-bold">About</h2>
+          <h2 className="text-2xl font-bold">{t.about}</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-lg text-muted-foreground dark:prose-invert">{DATA.summary}</Markdown>
+          <Markdown className="prose max-w-full text-pretty font-sans text-lg text-muted-foreground dark:prose-invert">{resume.summary}</Markdown>
         </BlurFade>
       </section>
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-2xl font-bold">Education</h2>
+            <h2 className="text-2xl font-bold">{t.education}</h2>
           </BlurFade>
-          {DATA.education.map((education, id) => (
-            <BlurFade key={education.school} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
+          {resume.education.map((education, id) => (
+            <BlurFade key={education.logoUrl} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
               <ResumeCard
                 key={education.school}
                 href={education.href}
@@ -69,14 +74,14 @@ export default function Page() {
         <div className="flex w-full flex-col gap-8 py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center gap-4 text-center">
-              <h2 id="projects-heading" className="text-3xl font-bold tracking-tighter sm:text-5xl">Selected Projects</h2>
+              <h2 id="projects-heading" className="text-3xl font-bold tracking-tighter sm:text-5xl">{t.projects}</h2>
               <p className="text-muted-foreground md:text-xl/relaxed">
-                A few personal projects, adaptations and collections, with a note on my part in each.
+                {t.projectsIntro}
               </p>
             </div>
           </BlurFade>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {DATA.projects.map((project, id) => (
+            {resume.projects.map((project, id) => (
               <BlurFade key={project.href} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                 <ProjectCard
                   title={project.title}
@@ -101,18 +106,17 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Interests</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">{t.interests}</h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A few things I enjoy exploring and working on in my own time.
+                  {t.interestsIntro}
                 </p>
               </div>
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
             <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-              {DATA.hobbies.map((project, id) => (
-                // <BlurFade key={project.title ?? id} delay={BLUR_FADE_DELAY * 15 + id * 0.05}>
-                <BlurFade key={project.title ?? id} delay={BLUR_FADE_DELAY * 40 + id * 0.05}>
+              {resume.hobbies.map((project, id) => (
+                <BlurFade key={project.image} delay={BLUR_FADE_DELAY * 40 + id * 0.05}>
                   <HapitCard title={project.title} description={project.description} image={project.image} />
                 </BlurFade>
               ))}
@@ -124,17 +128,17 @@ export default function Page() {
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">{t.contact}</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Feel free to get in touch via{" "}
+                {t.contactIntro}
                 <Link href={DATA.contact.social.LinkedIn.url} className="text-blue-500 hover:underline">
                   LinkedIn
-                </Link>{" "}
-                or{" "}
+                </Link>
+                {t.contactOr}
                 <Link href={DATA.contact.social.Email.url} className="text-blue-500 hover:underline">
-                  Email
-                </Link>{" "}
-                and I&apos;ll respond whenever I can.
+                  {t.email}
+                </Link>
+                {t.contactEnd}
               </p>
             </div>
           </BlurFade>

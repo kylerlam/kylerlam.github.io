@@ -12,6 +12,16 @@ Hey there! Welcome to my knowledge base. This project is a secondary creation ba
 ## Features
 
 - Tech list showcase with marquee animation
+- Language selector after Email in the dock: 简体中文, 繁體中文 and English.
+
+### Translations
+
+The site keeps its static GitHub Pages export. On first visit it matches the browser's preferred supported language (English is the fallback), then remembers explicit choices in `localStorage` under `portfolio.locale.v1`. Switching language updates the page without navigation and also updates the document's `lang` attribute.
+
+- Interface labels: `src/i18n/messages.ts`.
+- English profile content: `src/data/resume.tsx`; Chinese translations: `src/data/resume-translations.ts`.
+- English posts: `content/<slug>.mdx`; translations use the same slug under `content/zh-Hans/` and `content/zh-Hant/`. Missing post translations fall back to the English original, marked with `lang="en"`.
+- Static HTML and SEO metadata remain English; language choices currently share the same URLs.
 
 ## Make this your own
 

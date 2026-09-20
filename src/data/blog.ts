@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import { Locale, locales } from "@/i18n/locales";
 
 type Metadata = {
   title: string;
@@ -38,8 +39,10 @@ export async function markdownToHTML(markdown: string) {
   return p.toString();
 }
 
-export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
+export async function getPost(slug: string, locale: Locale = "en") {
+  const translatedPath = path.join("content", locale, `${slug}.mdx`);
+  const translated = locale !== "en" && fs.existsSync(translatedPath);
+  const filePath = translated ? translatedPath : path.join("content", `${slug}.mdx`);
   let source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = matter(source);
   const content = await markdownToHTML(rawContent);
@@ -47,7 +50,13 @@ export async function getPost(slug: string) {
     source: content,
     metadata,
     slug,
+    locale: translated ? locale : "en",
   };
+}
+
+export async function getPostTranslations(slug: string) {
+  const posts = await Promise.all(locales.map(async (locale) => [locale, await getPost(slug, locale)] as const));
+  return Object.fromEntries(posts) as Record<Locale, Awaited<ReturnType<typeof getPost>>>;
 }
 
 async function getAllPosts(dir: string) {

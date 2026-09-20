@@ -1,24 +1,19 @@
 "use client";
 
-// const ProjectCard = dynamic(() => import("@/components/project-card").then((mod) => mod.ProjectCard), { ssr: false });
-import dynamic from "next/dynamic";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { Icons } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { HapitCard } from "@/components/hapit-card";
-import { Marquee } from "@/components/marquee";
-import {useRef} from "react"
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const stackRef = useRef<HTMLDivElement>(null)
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -70,65 +65,35 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section id="projects">
-        <div className="space-y-12 w-full py-12">
-          {/* <BlurFade delay={BLUR_FADE_DELAY * 11}> */}
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my latest work</h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.
-                </p>
-              </div>
+      <section id="projects" aria-labelledby="projects-heading">
+        <div className="flex w-full flex-col gap-8 py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h2 id="projects-heading" className="text-3xl font-bold tracking-tighter sm:text-5xl">Selected Projects</h2>
+              <p className="text-muted-foreground md:text-xl/relaxed">
+                A few personal projects, adaptations and collections, with a note on my part in each.
+              </p>
             </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {DATA.projects.map((project, id) => (
-              // <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
-              <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 17 + id * 0.05}>
+              <BlurFade key={project.href} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                 <ProjectCard
-                  href={project.href}
-                  key={project.title}
                   title={project.title}
+                  href={project.href}
                   description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  video={project.video}
-                  links={project.links}
+                  tags={project.tags}
+                  links={[
+                    {
+                      type: "GitHub",
+                      href: project.href,
+                      icon: <Icons.github className="size-3" aria-hidden="true" />,
+                    },
+                  ]}
                 />
               </BlurFade>
             ))}
           </div>
-        </div>
-      </section>
-      <section id="techniques">
-        <div className="space-y-12 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 13}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Tech Stack</h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I use these tools to build innovative web applications and other artifacts.
-                </p>
-              </div>
-              <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-                <BlurFade delay={BLUR_FADE_DELAY * 14}>
-                  <div ref={stackRef}>
-                    <Marquee className="[--duration:100s] mt-8" scrollTargetRef={stackRef} />
-                  </div>
-                </BlurFade>
-                <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-                  {/* <BlurFade delay={BLUR_FADE_DELAY * 15}> */}
-                  {/* <div className="md-8"> */}
-                  {/* <Button variant={"outline"} size={"icon"}></Button> */}
-                  {/* </div> */}
-                  {/* </BlurFade> */}
-                </div>
-              </div>
-            </div>
-          </BlurFade>
         </div>
       </section>
       <section id="hobbies">
@@ -136,9 +101,9 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My favorite things</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Interests</h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  A list of a few things I’d like to do �?they may not happen, but hopefully soon.
+                  A few things I enjoy exploring and working on in my own time.
                 </p>
               </div>
             </div>

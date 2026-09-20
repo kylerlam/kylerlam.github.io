@@ -7,17 +7,16 @@ export const DATA = {
   url: "https://kylerlam.github.io",
   location: "Hong Kong",
   locationLink: "https://www.google.com/maps/place/hongkong",
-  description: "A web development enthusiast with a degree in Software Engineering.",
+  description: "A personal space for my experience, projects and hands-on interests.",
   summary:
-    "Software Engineering graduate with solid full-stack development skills in Vue3, React, Spring Boot, Flask, and RESTful APIs. Strong programming foundation in Python and Java, with hands-on experience in both independent and collaborative projects. Passionate about LLM-related applications and eager to contribute as a Web Developer / Full-Stack Developer / IT Support.",
+    "I'm Kyler, also known as LAM Kwan Ho (林坤壕). I hold a BSc (Hons) in Software Engineering from Bournemouth University and have worked in retail and on construction sites.\n\nI maintain personal websites, work with computer and network settings, and use AI tools to help with scripts and practical projects. This is a place to share my experience and connect with people across different fields.",
   avatarUrl: "/me.jpg",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "kwanho.job@gmail.com",
     social: {
       GitHub: {
         name: "GitHub",
@@ -47,7 +46,7 @@ export const DATA = {
     {
       school: "Bournemouth University",
       href: "https://www.bournemouth.ac.uk/",
-      degree: "BSc in Software Engineering",
+      degree: "BSc (Hons) Software Engineering",
       logoUrl: "/bu.png",
       start: "2020",
       end: "2024",
@@ -55,7 +54,7 @@ export const DATA = {
     {
       school: "Bournemouth University International College",
       href: "https://www.kaplaninternational.com/higher-education/pathways",
-      degree: "Kaplan Pathway in Computing",
+      degree: "Foundation Certificate in Computing",
       logoUrl: "/Kaplan.jpg",
       start: "2019",
       end: "2020",
@@ -63,103 +62,51 @@ export const DATA = {
     {
       school: "Hong Kong Institute of Vocational Education",
       href: "https://www.ive.edu.hk/en",
-      degree: "Diploma in IT Foundation Studies",
+      degree: "Diploma of Foundation Studies - Information Technology",
       logoUrl: "/IVE.png",
       start: "2018",
       end: "2019",
     },
   ],
   projects: [
-    // project 1
     {
-      title: "Simple e-shop",
-      href: "#",
-      dates: "Oct 2025 - Present",
-      active: true,
+      title: "Mac Stay Awake",
+      href: "https://github.com/kylerlam/mac-stay-awake",
       description:
-        "A full-stack e-commerce website built with React, Spring Boot, and MySQL. It empowers individual entrepreneurs to launch their online stores quickly and efficiently. It is envisioned to serve the wider community in the future.",
-      technologies: ["React.js", "Typescript", "MySQL", "Ant Design", "TailwindCSS"],
-      links: [
-        {
-          type: "Source",
-          href: "#",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
+        "A macOS app I developed with AI assistance to keep my Mac awake with the display off, allowing background tasks to continue. I defined the use case and worked with AI tools on implementation, validation and iteration.",
+      tags: ["AI-assisted development", "macOS"],
     },
-    // project 2
     {
-      title: "Awesome Login",
-      href: "#",
-      dates: "Oct 2025 - Present",
-      active: true,
+      title: "Quota Float",
+      href: "https://github.com/kylerlam/quota-float",
       description:
-        "A creative and uniquely styled native front-end login interface that can be seamlessly integrated into any framework project. Built with HTML, CSS, and JavaScript, it features real-time form validation, smooth animations, and a visually appealing user experience.",
-      technologies: ["JavaScript", "HTML", "CSS"],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/kylerlam/awesome-login",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
+        "My personalised fork of a desktop widget for viewing Codex usage limits. I customised the menu panel options and improved multilingual support.",
+      tags: ["Customised fork", "Multilingual support"],
     },
-    // project 3
-    // {
-    //   title: "HRMS system",
-    //   href: "#",
-    //   dates: "Oct 2025 - Present",
-    //   active: true,
-    //   description: "A HRMS database design and implement. As a revision of database knowledge.",
-    //   technologies: ["Next.js", "Typescript", "TailwindCSS", "Magic UI"],
-    //   links: [
-    //     {
-    //       type: "Source",
-    //       href: "#",
-    //       icon: <Icons.github className="size-3" />,
-    //     },
-    //   ],
-    //   image: "",
-    //   video: "",
-    // },
     {
-      title: "Book Activity",
-      href: "#",
-      dates: "Oct 2023 - June 2024",
-      active: true,
+      title: "Easy Compose",
+      href: "https://github.com/kylerlam/easy-compose",
       description:
-        "A full-stack book and event management system for schools, developed as my final-year university project. Built with Vue, Flask, and MySQL, and now being refactored for improvement.",
-      technologies: ["Vue.js", "Flask", "MySQL", "JavaScript", "ElementUI"],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/kylerlam/BookActivity.git",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
+        "My personal collection of Docker Compose configurations for different applications, gathered in one repository for reference and deployment.",
+      tags: ["Personal collection", "Docker Compose"],
     },
   ],
   hobbies: [
     {
-      title: "Having a dog",
-      description: "It might not be easy to have a dog for me right now due to some reasons. Hopefully, I’ll be able to have one in the future.",
-      image: "https://simpleicons.org/icons/datadog.svg",
+      title: "Docker",
+      description: "I enjoy using Docker to deploy and explore containerised applications.",
+      image: "/icons/docker-containers.svg",
     },
     {
-      title: "Traveling",
-      description: "Visiting different countries and experiencing their cultures would broaden my horizons.",
-      image: "https://www.svgrepo.com/show/189577/flight.svg",
+      title: "Home Networking",
+      description:
+        "Router setup, IP mapping, Cloudflare DDNS and Nginx reverse proxies, plus network simulations in Packet Tracer.",
+      image: "/icons/home-network.svg",
     },
     {
-      title: "Become a wonderful creator",
-      description: "Keep working hard, keep learning, and turn what I’ve learned into something truly inspiring.",
-      image: "https://simpleicons.org/icons/cashapp.svg",
+      title: "Aluminium Profile DIY",
+      description: "I enjoy hands-on DIY with aluminium profiles.",
+      image: "/icons/aluminium-profile.svg",
     },
   ],
 } as const;

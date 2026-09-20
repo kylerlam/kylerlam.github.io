@@ -9,7 +9,7 @@ interface Props {
   title: string;
   href?: string;
   description: string;
-  dates: string;
+  dates?: string;
   tags: readonly string[];
   link?: string;
   image?: string;
@@ -25,23 +25,27 @@ interface Props {
 export function ProjectCard({ title, description, dates, href, className, tags, link, image, video, links }: Props) {
   return (
     <Card className={"flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"}>
-      <Link href={href || "#"} className={cn("block cursor-pointer", className)}>
-        {video && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
-          />
-        )}
-        {image && <Image src={image} alt={title} width={500} height={300} className="h-40 w-full overflow-hidden object-cover object-top" />}
-      </Link>
+      {(image || video) && (
+        <Link href={href || "#"} className={cn("block cursor-pointer", className)}>
+          {video && (
+            <video
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
+            />
+          )}
+          {image && <Image src={image} alt={title} width={500} height={300} className="h-40 w-full overflow-hidden object-cover object-top" />}
+        </Link>
+      )}
       <CardHeader className="px-8 pt-10">
         <div className="space-y-1 px-2">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
+          <CardTitle className="mt-1 text-base">
+            {href ? <Link href={href} className="hover:underline">{title}</Link> : title}
+          </CardTitle>
+          {dates && <time className="font-sans text-xs">{dates}</time>}
           <div className="hidden font-sans text-xs underline print:visible">{link?.replace("https://", "").replace("www.", "").replace("/", "")}</div>
           <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">{description}</Markdown>
         </div>
@@ -61,7 +65,7 @@ export function ProjectCard({ title, description, dates, href, className, tags, 
         {links && links.length > 0 && (
           <div className="flex flex-row flex-wrap items-start gap-1">
             {links?.map((link, idx) => (
-              <Link href={link?.href} key={idx} target="_blank">
+              <Link href={link?.href} key={idx} target="_blank" rel="noopener noreferrer" aria-label={`${link.type}: ${title}`}>
                 <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
                   {link.icon}
                   {link.type}

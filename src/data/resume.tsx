@@ -7,17 +7,16 @@ export const DATA = {
   url: "https://kylerlam.github.io",
   location: "Hong Kong",
   locationLink: "https://www.google.com/maps/place/hongkong",
-  description: "A web development enthusiast with a degree in Software Engineering.",
+  description: "A personal space for my experience, projects and hands-on interests.",
   summary:
-    "Software Engineering graduate with solid full-stack development skills in Vue3, React, Spring Boot, Flask, and RESTful APIs. Strong programming foundation in Python and Java, with hands-on experience in both independent and collaborative projects. Passionate about LLM-related applications and eager to contribute as a Web Developer / Full-Stack Developer / IT Support.",
+    "I'm Kyler, also known as LAM Kwan Ho (林坤壕). I hold a BSc (Hons) in Software Engineering from Bournemouth University and have worked in retail and on construction sites.\n\nI maintain personal websites, work with computer and network settings, and use AI tools to help with scripts and practical projects. This is a place to share my experience and connect with people across different fields.",
   avatarUrl: "/me.jpg",
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "kwanho.job@gmail.com",
     social: {
       GitHub: {
         name: "GitHub",
@@ -47,7 +46,7 @@ export const DATA = {
     {
       school: "Bournemouth University",
       href: "https://www.bournemouth.ac.uk/",
-      degree: "BSc in Software Engineering",
+      degree: "BSc (Hons) Software Engineering",
       logoUrl: "/bu.png",
       start: "2020",
       end: "2024",
@@ -55,7 +54,7 @@ export const DATA = {
     {
       school: "Bournemouth University International College",
       href: "https://www.kaplaninternational.com/higher-education/pathways",
-      degree: "Kaplan Pathway in Computing",
+      degree: "Foundation Certificate in Computing",
       logoUrl: "/Kaplan.jpg",
       start: "2019",
       end: "2020",
@@ -63,7 +62,7 @@ export const DATA = {
     {
       school: "Hong Kong Institute of Vocational Education",
       href: "https://www.ive.edu.hk/en",
-      degree: "Diploma in IT Foundation Studies",
+      degree: "Diploma of Foundation Studies - Information Technology",
       logoUrl: "/IVE.png",
       start: "2018",
       end: "2019",

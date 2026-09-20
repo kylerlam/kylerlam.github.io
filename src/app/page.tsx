@@ -2,6 +2,8 @@
 
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { Icons } from "@/components/icons";
+import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
@@ -61,6 +63,37 @@ export default function Page() {
               />
             </BlurFade>
           ))}
+        </div>
+      </section>
+      <section id="projects" aria-labelledby="projects-heading">
+        <div className="flex w-full flex-col gap-8 py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h2 id="projects-heading" className="text-3xl font-bold tracking-tighter sm:text-5xl">Selected Projects</h2>
+              <p className="text-muted-foreground md:text-xl/relaxed">
+                A few personal projects, adaptations and collections, with a note on my part in each.
+              </p>
+            </div>
+          </BlurFade>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {DATA.projects.map((project, id) => (
+              <BlurFade key={project.href} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
+                <ProjectCard
+                  title={project.title}
+                  href={project.href}
+                  description={project.description}
+                  tags={project.tags}
+                  links={[
+                    {
+                      type: "GitHub",
+                      href: project.href,
+                      icon: <Icons.github className="size-3" aria-hidden="true" />,
+                    },
+                  ]}
+                />
+              </BlurFade>
+            ))}
+          </div>
         </div>
       </section>
       <section id="hobbies">

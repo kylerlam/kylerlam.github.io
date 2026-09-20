@@ -68,6 +68,29 @@ export const DATA = {
       end: "2019",
     },
   ],
+  projects: [
+    {
+      title: "Mac Stay Awake",
+      href: "https://github.com/kylerlam/mac-stay-awake",
+      description:
+        "A macOS app I developed with AI assistance to keep my Mac awake with the display off, allowing background tasks to continue. I defined the use case and worked with AI tools on implementation, validation and iteration.",
+      tags: ["AI-assisted development", "macOS"],
+    },
+    {
+      title: "Quota Float",
+      href: "https://github.com/kylerlam/quota-float",
+      description:
+        "My personalised fork of a desktop widget for viewing Codex usage limits. I customised the menu panel options and improved multilingual support.",
+      tags: ["Customised fork", "Multilingual support"],
+    },
+    {
+      title: "Easy Compose",
+      href: "https://github.com/kylerlam/easy-compose",
+      description:
+        "My personal collection of Docker Compose configurations for different applications, gathered in one repository for reference and deployment.",
+      tags: ["Personal collection", "Docker Compose"],
+    },
+  ],
   hobbies: [
     {
       title: "Docker",

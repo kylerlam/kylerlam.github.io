@@ -70,19 +70,20 @@ export const DATA = {
   ],
   hobbies: [
     {
-      title: "Having a dog",
-      description: "It might not be easy to have a dog for me right now due to some reasons. Hopefully, I’ll be able to have one in the future.",
-      image: "https://simpleicons.org/icons/datadog.svg",
+      title: "Docker",
+      description: "I enjoy using Docker to deploy and explore containerised applications.",
+      image: "/icons/docker-containers.svg",
     },
     {
-      title: "Traveling",
-      description: "Visiting different countries and experiencing their cultures would broaden my horizons.",
-      image: "https://www.svgrepo.com/show/189577/flight.svg",
+      title: "Home Networking",
+      description:
+        "Router setup, IP mapping, Cloudflare DDNS and Nginx reverse proxies, plus network simulations in Packet Tracer.",
+      image: "/icons/home-network.svg",
     },
     {
-      title: "Become a wonderful creator",
-      description: "Keep working hard, keep learning, and turn what I’ve learned into something truly inspiring.",
-      image: "https://simpleicons.org/icons/cashapp.svg",
+      title: "Aluminium Profile DIY",
+      description: "I enjoy hands-on DIY with aluminium profiles.",
+      image: "/icons/aluminium-profile.svg",
     },
   ],
 } as const;
